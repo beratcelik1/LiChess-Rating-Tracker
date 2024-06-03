@@ -66,3 +66,21 @@ if __name__ == "__main__":
     print_last_30_day_rating_for_top_player()
     generate_rating_csv_for_top_50_classical_players()
     run_tests()
+```
+
+# CSV File Structure
+
+The generated CSV file `top_50_players_ratings.csv` will have the following structure:
+
+- The first column will be the player’s username.
+- The 2nd column will be the player’s rating 30 days ago.
+- The 32nd column will be the player’s rating today.
+- Each row will represent one player, and each column will represent a date within the last 30 days, starting from 30 days ago to today.
+
+## Key Assumptions
+
+- If a player does not play on a given day, their rating remains the same as the last known rating.
+
+## License
+
+This project is licensed under the MIT License.

@@ -41,3 +41,29 @@ This project includes tests to ensure the correctness of the implemented functio
 from chess_players_rating_tracker import run_tests
 
 run_tests()
+
+
+# Code Overview
+
+## Functions
+
+- `fetch_data(url: str) -> Optional[Dict]`: Helper function to fetch data from a given URL.
+- `fetch_top_50_classical_players() -> List[Dict]`: Fetches the top 50 classical chess players.
+- `fetch_rating_history(username: str) -> Optional[List[Dict]]`: Fetches the rating history for a specific player.
+- `print_top_50_classical_players() -> None`: Prints the usernames of the top 50 classical chess players.
+- `generate_last_30_days_rating(points: List[List[int]], start_date: datetime.date, end_date: datetime.date) -> Dict[str, Optional[int]]`: Generates rating history for the last 30 days using a deque.
+- `print_last_30_day_rating_for_top_player() -> None`: Prints the rating history for the top player in the last 30 days.
+- `generate_rating_csv_for_top_50_classical_players() -> None`: Generates a CSV file for the top 50 players' ratings over the last 30 days.
+- `run_tests() -> None`: Runs tests to validate the functionality of the script.
+
+## Example
+
+Here is an example of how you might use the script:
+
+```python
+if __name__ == "__main__":
+    print_top_50_classical_players()
+    print_last_30_day_rating_for_top_player()
+    generate_rating_csv_for_top_50_classical_players()
+    run_tests()
+

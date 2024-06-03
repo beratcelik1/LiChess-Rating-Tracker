@@ -12,6 +12,29 @@ This project fetches and displays information about the top 50 classical chess p
 - Python 3.x
 - Requests library (`pip install requests`)
 
+## Installation
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/lichess-rating-tracker.git
+    cd lichess-rating-tracker
+    ```
+
+2. Install the required dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+## Project Structure
+```plaintext
+lichess-rating-tracker/
+│
+├── chess_players_rating_tracker.py    # Main script with all functions
+├── requirements.txt                   # Project dependencies
+├── README.md                          # Project documentation
+└── tests.py                           # Script for running tests
+```
+
 ## Usage
 
 1. **List Top 50 Classical Chess Players**

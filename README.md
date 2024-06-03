@@ -85,31 +85,44 @@ run_tests()
   - Runs tests to validate the functionality of the script.
   - Includes tests for fetching top players, fetching rating history, generating rating history for the last 30 days, and edge cases.
 
-
-## Example
-
-Here is an example of how you might use the script:
-
-```python
-if __name__ == "__main__":
-    print_top_50_classical_players()
-    print_last_30_day_rating_for_top_player()
-    generate_rating_csv_for_top_50_classical_players()
-    run_tests()
-```
-
-# CSV File Structure
-
-The generated CSV file `top_50_players_ratings.csv` will have the following structure:
-
-- The first column will be the player’s username.
-- The 2nd column will be the player’s rating 30 days ago.
-- The 32nd column will be the player’s rating today.
-- Each row will represent one player, and each column will represent a date within the last 30 days, starting from 30 days ago to today.
-
 ## Key Assumptions
 
 - If a player does not play on a given day, their rating remains the same as the last known rating.
+
+## Explanation of Empty Cells in the CSV
+
+In the generated CSV file, you may notice that some cells are empty. This is because the Lichess rating history for some players might not cover all the last 30 days. Here are the possible reasons for the empty cells:
+
+1. **Recent Start**: Some players have only recently started playing classical chess games on Lichess. For instance:
+   - If a player started playing 5 days ago, the initial 25 cells will be empty for the days before they started playing.
+
+2. **Irregular Play**: Some players may not have played every day within the last 30 days. In such cases, their rating remains the same as the last known rating until they play again. These cells will not be empty but will show the last known rating.
+
+The code fills in the rating for each day by looking back to find the last known rating. For example:
+
+- **Player C**: Played games on May 1st, May 5th, and May 10th. Their rating history will show:
+  - May 1st: 1500 (rating on May 1st)
+  - May 2nd: 1500 (last known rating from May 1st)
+  - May 3rd: 1500 (last known rating from May 1st)
+  - May 4th: 1500 (last known rating from May 1st)
+  - May 5th: 1510 (rating on May 5th)
+  - May 6th: 1510 (last known rating from May 5th)
+  - May 7th: 1510 (last known rating from May 5th)
+  - May 8th: 1510 (last known rating from May 5th)
+  - May 9th: 1510 (last known rating from May 5th)
+  - May 10th: 1520 (rating on May 10th)
+
+### How the Code Searches Back for the Last Known Rating
+
+To handle cases where a player has not played on a specific day, the code uses the following approach:
+
+- It maintains a deque (double-ended queue) of sorted rating dates and their corresponding ratings.
+- For each day in the last 30 days, it checks if the player has a rating for that specific day.
+- If there is no rating for the day, the code looks back through the deque to find the last known rating and uses that value.
+
+This approach ensures that the CSV file accurately reflects the available data while adhering to the key assumption that if a player doesn't play on a given day, their rating remains the same as the last known rating.
+
+The presence of empty cells or repeated ratings is thus a normal occurrence and reflects the real-world scenario of varying player activity levels.
 
 ## License
 

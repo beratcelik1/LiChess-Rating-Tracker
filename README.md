@@ -17,8 +17,6 @@ This project fetches and displays information about the top 50 classical chess p
 Clone the repository:
     ```
     git clone https://github.com/beratcelik1/lichess-rating-tracker.git
-    
-    cd lichess-rating-tracker
     ```
 
 ## Usage

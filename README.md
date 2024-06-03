@@ -41,7 +41,7 @@ This project includes tests to ensure the correctness of the implemented functio
 from chess_players_rating_tracker import run_tests
 
 run_tests()
-
+```
 
 # Code Overview
 
@@ -66,4 +66,3 @@ if __name__ == "__main__":
     print_last_30_day_rating_for_top_player()
     generate_rating_csv_for_top_50_classical_players()
     run_tests()
-

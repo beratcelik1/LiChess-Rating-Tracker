@@ -15,20 +15,10 @@ This project fetches and displays information about the top 50 classical chess p
 ## Installation
 
 Clone the repository:
-    ```bash
+    ```
     git clone https://github.com/beratcelik1/lichess-rating-tracker.git
     cd lichess-rating-tracker
     ```
-
-## Project Structure
-```plaintext
-lichess-rating-tracker/
-│
-├── chess_players_rating_tracker.py    # Main script with all functions
-├── requirements.txt                   # Project dependencies
-├── README.md                          # Project documentation
-└── tests.py                           # Script for running tests
-```
 
 ## Usage
 

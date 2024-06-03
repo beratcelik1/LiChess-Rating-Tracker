@@ -116,7 +116,7 @@ The code fills in the rating for each day by looking back to find the last known
 
 To handle cases where a player has not played on a specific day, the code uses the following approach:
 
-- It maintains a deque (double-ended queue) of sorted rating dates and their corresponding ratings.
+- It maintains stack data structure and a deque (double-ended queue) of sorted rating dates and their corresponding ratings.
 - For each day in the last 30 days, it checks if the player has a rating for that specific day.
 - If there is no rating for the day, the code looks back through the deque to find the last known rating and uses that value.
 

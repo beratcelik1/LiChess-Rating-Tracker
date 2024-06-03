@@ -1,1 +1,1 @@
-# LiChess-Rating-Tracker
+# Lichess Rating Tracker

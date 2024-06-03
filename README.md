@@ -50,18 +50,41 @@ from chess_players_rating_tracker import run_tests
 run_tests()
 ```
 
-# Code Overview
+## Code Overview
 
-## Functions
+### Functions
 
-- `fetch_data(url: str) -> Optional[Dict]`: Helper function to fetch data from a given URL.
-- `fetch_top_50_classical_players() -> List[Dict]`: Fetches the top 50 classical chess players.
-- `fetch_rating_history(username: str) -> Optional[List[Dict]]`: Fetches the rating history for a specific player.
-- `print_top_50_classical_players() -> None`: Prints the usernames of the top 50 classical chess players.
-- `generate_last_30_days_rating(points: List[List[int]], start_date: datetime.date, end_date: datetime.date) -> Dict[str, Optional[int]]`: Generates rating history for the last 30 days using a deque.
-- `print_last_30_day_rating_for_top_player() -> None`: Prints the rating history for the top player in the last 30 days.
-- `generate_rating_csv_for_top_50_classical_players() -> None`: Generates a CSV file for the top 50 players' ratings over the last 30 days.
-- `run_tests() -> None`: Runs tests to validate the functionality of the script.
+- **fetch_data(url: str) -> Optional[Dict]**
+  - Helper function to fetch data from a given URL.
+  - Returns a JSON response if the request is successful, otherwise returns None.
+
+- **fetch_top_50_classical_players() -> List[Dict]**
+  - Fetches the top 50 classical chess players from the Lichess API.
+  - Returns a list of dictionaries containing player information.
+
+- **fetch_rating_history(username: str) -> Optional[List[Dict]]**
+  - Fetches the rating history for a specific player from the Lichess API.
+  - Returns a list of dictionaries containing the player's rating history.
+
+- **print_top_50_classical_players() -> None**
+  - Prints the usernames of the top 50 classical chess players.
+
+- **generate_last_30_days_rating(points: List[List[int]], start_date: datetime.date, end_date: datetime.date) -> Dict[str, Optional[int]]**
+  - Generates the rating history for the last 30 days using a deque.
+  - Takes the rating points, start date, and end date as inputs.
+  - Returns a dictionary with dates as keys and ratings as values.
+
+- **print_last_30_day_rating_for_top_player() -> None**
+  - Prints the rating history for the top classical chess player over the last 30 days.
+
+- **generate_rating_csv_for_top_50_classical_players() -> None**
+  - Generates a CSV file showing the rating history for each of the top 50 players over the last 30 days.
+  - The CSV includes the player's username and their ratings for each day in the last 30 days.
+
+- **run_tests() -> None**
+  - Runs tests to validate the functionality of the script.
+  - Includes tests for fetching top players, fetching rating history, generating rating history for the last 30 days, and edge cases.
+
 
 ## Example
 
